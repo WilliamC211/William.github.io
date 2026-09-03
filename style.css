@@ -1,0 +1,272 @@
+/* ============================================================
+   Shared styles — Zheng CHENG (William) academic homepage
+   ============================================================ */
+:root{
+  --navy:#1a365d;
+  --navy-800:#14294a;
+  --blue:#2b6cb0;
+  --blue-600:#3182ce;
+  --blue-soft:#ebf4ff;
+  --ink:#24324a;
+  --muted:#5c6b84;
+  --line:#e3e9f2;
+  --card:#ffffff;
+  --shadow:0 18px 55px rgba(20,35,60,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  line-height:1.75;
+  /*
+    ===== BACKGROUND IMAGE =====
+    1. Pick any image (photo / abstract / gradient).
+    2. Rename it exactly to:  background.jpg
+    3. Upload it to the same folder as this page on GitHub.
+    If the image is missing, the light neutral background below is
+    used instead. To use a different filename, just edit the url() line.
+  */
+  background-color:#eef1f6;
+  background-image:url("background.jpg");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+  background-attachment:fixed;
+  min-height:100vh;
+}
+.page{max-width:980px;margin:0 auto;padding:40px 20px 70px;}
+.card{
+  background:var(--card);
+  border-radius:20px;
+  padding:36px 48px 30px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.7);
+  animation:rise .5s ease-out;
+}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- top menu bar ---------- */
+.topbar{
+  position:sticky;top:12px;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(14px) saturate(1.5);
+  -webkit-backdrop-filter:blur(14px) saturate(1.5);
+  border:1px solid rgba(26,54,93,.08);
+  border-radius:999px;
+  padding:8px 10px 8px 20px;
+  margin-bottom:26px;
+  box-shadow:0 10px 30px rgba(20,35,60,.10);
+}
+.topbar .brand{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-weight:700;font-size:1.05rem;
+  color:var(--navy);text-decoration:none;white-space:nowrap;
+}
+.topbar nav{display:flex;flex-wrap:wrap;gap:2px;}
+.topbar nav a{
+  color:var(--navy);text-decoration:none;
+  font-size:.9rem;font-weight:500;
+  padding:7px 13px;border-radius:999px;transition:.2s;
+}
+.topbar nav a:hover{background:var(--blue-soft);color:var(--blue-600);}
+.topbar nav a.active{background:var(--navy);color:#fff;}
+
+/* ---------- page heading (sub pages) ---------- */
+.page-head{margin:4px 0 22px;}
+.page-head h1{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.9rem;color:var(--navy);line-height:1.2;
+}
+.page-head p{color:var(--muted);font-size:.95rem;margin-top:4px;}
+
+/* ---------- hero ---------- */
+.hero{display:flex;gap:36px;align-items:flex-start;padding:8px 0 10px;}
+.hero-text{flex:1;min-width:0;}
+.name{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:2.35rem;font-weight:700;color:var(--navy);
+  line-height:1.15;letter-spacing:-.01em;
+}
+.name .william{color:var(--muted);font-weight:500;font-size:1.45rem;}
+.subtitle{font-size:1.08rem;color:var(--blue-600);font-weight:600;margin:8px 0 2px;}
+.affil{color:var(--muted);font-size:.97rem;}
+.contact{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 22px;}
+.contact li{display:flex;align-items:center;gap:9px;font-size:.92rem;color:var(--muted);}
+.contact a{color:var(--navy);text-decoration:none;border-bottom:1px dashed transparent;transition:.2s;}
+.contact a:hover{color:var(--blue-600);border-bottom-color:var(--blue-600);}
+.contact i{width:18px;text-align:center;color:var(--blue-600);}
+
+/* ---------- CV download button ---------- */
+.cv-download{margin-top:18px;}
+.btn-cv{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--navy);color:#fff;
+  padding:9px 20px;border-radius:999px;
+  font-size:.92rem;font-weight:600;text-decoration:none;
+  border:1px solid var(--navy);
+  box-shadow:0 6px 18px rgba(26,54,93,.18);
+  transition:.2s;
+}
+.btn-cv i{color:#fff;font-size:.95rem;}
+.btn-cv:hover{background:var(--blue-600);border-color:var(--blue-600);transform:translateY(-1px);}
+/*
+  ===== AVATAR =====
+  Video: avatar.mp4 (or avatar.mov) — looping clip, H.264 recommended.
+  Photo: photo.jpg — shown when the video cannot play (your avatar).
+  If both are missing, the "ZC" initials are shown.
+*/
+.avatar-wrap{position:relative;flex-shrink:0;width:118px;height:118px;}
+.avatar{
+  width:118px;height:118px;border-radius:34%;
+  object-fit:cover;object-position:center;
+  display:block;position:relative;z-index:1;
+  border:4px solid #fff;
+  box-shadow:0 12px 30px rgba(20,35,60,.20);
+  background:linear-gradient(140deg,var(--navy-800),var(--blue));
+}
+.avatar-fallback{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:none;z-index:1;
+  border-radius:34%;border:4px solid #fff;
+  box-shadow:0 12px 30px rgba(20,35,60,.20);
+  background:linear-gradient(140deg,var(--navy-800),var(--blue));
+}
+.avatar-initials{
+  position:absolute;inset:0;
+  display:none;align-items:center;justify-content:center;
+  z-index:1;
+  border-radius:34%;border:4px solid #fff;
+  box-shadow:0 12px 30px rgba(20,35,60,.20);
+  background:linear-gradient(140deg,var(--navy-800),var(--blue));
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:2.2rem;font-weight:600;line-height:1;color:#fff;
+}
+
+/* ---------- sections ---------- */
+section{margin-top:40px;scroll-margin-top:110px;}
+h2{
+  display:flex;align-items:center;gap:12px;
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.42rem;color:var(--navy);margin-bottom:16px;
+  line-height:1.35;
+}
+h2 i{
+  width:34px;height:34px;border-radius:10px;
+  background:var(--blue-soft);color:var(--blue-600);
+  font-size:.9rem;flex-shrink:0;
+}
+/* higher specificity than FontAwesome's .fa-solid rule so the
+   icon glyph is truly centered inside the rounded square */
+h2 i.fa-solid, h2 i.fa-regular, h2 i.fa-brands{
+  display:inline-block;text-align:center;line-height:34px;
+}
+h2 i::before{line-height:1;}
+h2::after{content:"";flex:1;height:1px;background:var(--line);}
+h3{font-size:1rem;color:var(--navy);margin:0 0 8px;}
+
+/* ---------- interests ---------- */
+.about-text{font-size:.96rem;color:#3c4a63;}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.tag{
+  background:var(--blue-soft);color:var(--navy);
+  border:1px solid #d6e6f8;
+  padding:5px 14px;border-radius:999px;
+  font-size:.87rem;font-weight:500;
+}
+
+/* ---------- education ---------- */
+.edu{padding:2px 0 20px;}
+.edu-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+.edu-head strong{font-size:1.05rem;color:var(--navy);}
+.edu-date{
+  flex-shrink:0;font-size:.82rem;color:var(--muted);
+  background:#f1f5fb;border:1px solid var(--line);
+  padding:2px 10px;border-radius:999px;white-space:nowrap;
+}
+.edu-sub{color:var(--muted);font-size:.93rem;margin:3px 0 5px;}
+
+/* ---------- experience timeline ---------- */
+.exp{
+  position:relative;padding:0 0 28px 22px;
+  border-left:2px solid var(--line);margin-left:6px;
+}
+.exp:last-child{padding-bottom:2px;}
+.exp::before{
+  content:"";position:absolute;left:-7px;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--blue-600);border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--blue-soft);
+}
+.exp-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.exp-head strong{color:var(--navy);font-size:1.02rem;}
+.exp-role{color:var(--blue-600);font-weight:600;font-size:.9rem;}
+.exp-org{color:var(--muted);font-size:.9rem;margin:1px 0 7px;}
+.exp ul{padding-left:18px;font-size:.93rem;color:#3c4a63;}
+.exp li{margin-bottom:5px;}
+.exp-note{
+  margin-top:10px;font-size:.86rem;color:var(--muted);
+  background:#f6f9fd;border:1px dashed var(--line);
+  border-radius:10px;padding:8px 12px;
+}
+
+/* ---------- publications ---------- */
+.pub{
+  border:1px solid var(--line);border-left:4px solid var(--blue-600);
+  border-radius:10px;background:#fcfdff;
+  padding:13px 16px 13px 18px;margin-bottom:10px;font-size:.94rem;
+}
+.pub .status{
+  display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.04em;
+  padding:2px 10px;border-radius:999px;margin-bottom:6px;
+}
+.status.under-review{background:#fef3c7;color:#92400e;}
+.status.manuscript{background:#e0e7ff;color:#3730a3;}
+.status.thesis{background:#dcfce7;color:#166534;}
+
+/* ---------- talks ---------- */
+.talk-list{list-style:none;}
+.talk-list li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:.93rem;}
+.talk-list li:last-child{border-bottom:none;}
+.talk-list .conf{color:var(--muted);}
+.talk-list .year{float:right;color:var(--muted);font-size:.84rem;}
+
+/* ---------- skills / badges ---------- */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.skill-card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fcfdff;}
+.skill-card h3{display:flex;align-items:center;gap:9px;font-size:.95rem;}
+.skill-card h3 i{color:var(--blue-600);width:17px;}
+.skill-card p{font-size:.9rem;color:#3c4a63;}
+.badge-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;font-size:.92rem;}
+.badge-list li{display:flex;gap:9px;align-items:center;color:#3c4a63;}
+.badge-list i{color:var(--blue-600);width:16px;}
+.badge-list li.full{grid-column:1 / -1;align-items:flex-start;}
+
+/* ---------- footer ---------- */
+footer{
+  margin-top:44px;padding-top:20px;
+  border-top:1px solid var(--line);
+  text-align:center;color:var(--muted);font-size:.85rem;
+}
+footer .social{margin-bottom:10px;}
+footer .social a{color:var(--navy);font-size:1.15rem;margin:0 9px;text-decoration:none;transition:.2s;}
+footer .social a:hover{color:var(--blue-600);}
+footer .social a svg{vertical-align:-2px;}
+
+/* ---------- responsive ---------- */
+@media (max-width:760px){
+  .page{padding:20px 12px 56px;}
+  .card{padding:26px 20px 22px;border-radius:16px;}
+  .topbar{flex-direction:column;align-items:stretch;gap:8px;border-radius:18px;padding:12px 14px;}
+  .topbar nav{overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;}
+  .topbar nav a{white-space:nowrap;padding:6px 12px;}
+  .hero{flex-direction:column-reverse;gap:18px;}
+  .name{font-size:1.85rem;}
+  .name .william{font-size:1.15rem;}
+  .skills,.badge-list{grid-template-columns:1fr;}
+  .exp-head,.edu-head{flex-direction:column;align-items:flex-start;gap:2px;}
+  .talk-list .year{float:none;display:inline-block;margin-left:6px;}
+  body{background-attachment:scroll;}
+}
